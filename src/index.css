@@ -78,9 +78,14 @@
   * {
     @apply border-border;
   }
+  html,
   body {
-    @apply bg-background text-foreground;
+    background: #060611;
+    min-height: 100%;
     font-family: "Golos Text", sans-serif;
+  }
+  body {
+    @apply text-foreground;
   }
 }
 
