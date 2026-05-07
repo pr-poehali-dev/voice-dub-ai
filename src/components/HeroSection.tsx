@@ -3,6 +3,14 @@ import Icon from '@/components/ui/icon';
 
 const WAVE_BARS = Array.from({ length: 40 });
 
+const LANGS = [
+  { flag: '🇬🇧', name: 'English' },
+  { flag: '🇪🇸', name: 'Español' },
+  { flag: '🇵🇹', name: 'Português' },
+  { flag: '🇩🇪', name: 'Deutsch' },
+  { flag: '🇫🇷', name: 'Français' },
+];
+
 export default function HeroSection() {
   const waveRef = useRef<HTMLDivElement>(null);
 
@@ -23,18 +31,9 @@ export default function HeroSection() {
     >
       {/* Mesh orbs */}
       <div className="mesh-bg">
-        <div
-          className="mesh-orb w-[600px] h-[600px]"
-          style={{ top: '-100px', left: '-100px', background: 'var(--vd-violet)', animationDelay: '0s' }}
-        />
-        <div
-          className="mesh-orb w-[500px] h-[500px]"
-          style={{ top: '200px', right: '-150px', background: 'var(--vd-cyan)', animationDelay: '3s' }}
-        />
-        <div
-          className="mesh-orb w-[400px] h-[400px]"
-          style={{ bottom: '-100px', left: '30%', background: 'var(--vd-pink)', animationDelay: '5s' }}
-        />
+        <div className="mesh-orb w-[600px] h-[600px]" style={{ top: '-100px', left: '-100px', background: 'var(--vd-violet)', animationDelay: '0s' }} />
+        <div className="mesh-orb w-[500px] h-[500px]" style={{ top: '200px', right: '-150px', background: 'var(--vd-cyan)', animationDelay: '3s' }} />
+        <div className="mesh-orb w-[400px] h-[400px]" style={{ bottom: '-100px', left: '30%', background: 'var(--vd-pink)', animationDelay: '5s' }} />
       </div>
 
       {/* Grid overlay */}
@@ -49,13 +48,10 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Badge */}
-        <div
-          className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 animate-slide-up"
-          style={{ animationDelay: '0.1s', opacity: 0 }}
-        >
-          <span className="w-2 h-2 rounded-full bg-vd-cyan animate-pulse" />
+        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 animate-slide-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+          <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--vd-cyan)' }} />
           <span className="text-white/70 text-xs font-golos tracking-widest uppercase">
-            AI-озвучка нового поколения
+            Аудио-перевод на базе AI
           </span>
         </div>
 
@@ -64,31 +60,51 @@ export default function HeroSection() {
           className="font-syne font-800 text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-white mb-6 animate-slide-up"
           style={{ animationDelay: '0.2s', opacity: 0 }}
         >
-          Голос без
+          Ваш голос
           <br />
-          <span className="grad-text">границ</span>
+          <span className="grad-text">на 5 языках</span>
         </h1>
 
         <p
-          className="text-white/60 font-golos text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-slide-up"
+          className="text-white/60 font-golos text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8 animate-slide-up"
           style={{ animationDelay: '0.35s', opacity: 0 }}
         >
-          Дублируйте, транскрибируйте и переводите любой контент с помощью нейросети. 
-          100+ голосов, 40+ языков, реальное время.
+          Загрузите аудио на русском — получите озвученный перевод на английском, испанском,
+          португальском, немецком или французском. До 60 секунд, мгновенно.
         </p>
+
+        {/* Language chips */}
+        <div
+          className="flex flex-wrap items-center justify-center gap-3 mb-10 animate-slide-up"
+          style={{ animationDelay: '0.45s', opacity: 0 }}
+        >
+          <span className="text-white/30 font-golos text-sm">🇷🇺 Русский →</span>
+          {LANGS.map((l) => (
+            <div key={l.name} className="glass rounded-full px-3 py-1.5 flex items-center gap-1.5">
+              <span className="text-base leading-none">{l.flag}</span>
+              <span className="text-white/70 font-golos text-xs">{l.name}</span>
+            </div>
+          ))}
+        </div>
 
         {/* CTAs */}
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up"
-          style={{ animationDelay: '0.5s', opacity: 0 }}
+          style={{ animationDelay: '0.55s', opacity: 0 }}
         >
-          <button className="btn-grad px-8 py-4 rounded-full font-syne font-700 text-white text-base flex items-center gap-2">
-            <Icon name="Zap" size={18} />
-            Начать бесплатно
+          <button
+            className="btn-grad px-8 py-4 rounded-full font-syne font-700 text-white text-base flex items-center gap-2"
+            onClick={() => document.querySelector('#app')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <Icon name="Mic" size={18} />
+            Попробовать бесплатно
           </button>
-          <button className="glass px-8 py-4 rounded-full font-golos text-white/80 hover:text-white text-base flex items-center gap-2 transition-all hover:border-white/20">
-            <Icon name="Play" size={18} />
-            Смотреть демо
+          <button
+            className="glass px-8 py-4 rounded-full font-golos text-white/80 hover:text-white text-base flex items-center gap-2 transition-all"
+            onClick={() => document.querySelector('#pricing')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            <Icon name="CreditCard" size={18} />
+            Посмотреть тарифы
           </button>
         </div>
 
@@ -104,27 +120,23 @@ export default function HeroSection() {
               className="wave-bar w-[3px] rounded-full"
               style={{
                 height: `${20 + Math.sin(i * 0.4) * 30 + Math.random() * 20}px`,
-                background: i < 14
-                  ? 'var(--vd-cyan)'
-                  : i < 27
-                  ? 'var(--vd-violet)'
-                  : 'var(--vd-pink)',
+                background: i < 14 ? 'var(--vd-cyan)' : i < 27 ? 'var(--vd-violet)' : 'var(--vd-pink)',
                 opacity: 0.7 + Math.sin(i * 0.3) * 0.3,
               }}
             />
           ))}
         </div>
 
-        {/* Stats row */}
+        {/* Stats */}
         <div
           className="flex flex-wrap items-center justify-center gap-8 mt-14 animate-slide-up"
           style={{ animationDelay: '0.8s', opacity: 0 }}
         >
           {[
-            { val: '50K+', label: 'Пользователей' },
-            { val: '100+', label: 'Голосов' },
-            { val: '40+', label: 'Языков' },
-            { val: '<1s', label: 'Задержка' },
+            { val: '5', label: 'Языков перевода' },
+            { val: '60с', label: 'Макс. длина аудио' },
+            { val: 'MP3', label: 'Формат экспорта' },
+            { val: '<10с', label: 'Время обработки' },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-syne font-800 text-2xl grad-text">{s.val}</div>
