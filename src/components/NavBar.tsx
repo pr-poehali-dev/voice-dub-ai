@@ -37,7 +37,7 @@ export default function NavBar() {
             <Icon name="Mic" size={16} className="text-white" />
           </div>
           <span className="font-syne font-800 text-lg text-white tracking-tight">
-            Voice<span className="grad-text">Dub</span> AI
+            VoiceDub<span className="grad-text">Ru</span> AI
           </span>
         </div>
 

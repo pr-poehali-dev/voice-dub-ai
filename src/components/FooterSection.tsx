@@ -14,7 +14,7 @@ export default function FooterSection() {
               <Icon name="Mic" size={16} className="text-white" />
             </div>
             <span className="font-syne font-800 text-lg text-white tracking-tight">
-              Voice<span className="grad-text">Dub</span> AI
+              VoiceDub<span className="grad-text">Ru</span> AI
             </span>
           </div>
 
@@ -27,7 +27,7 @@ export default function FooterSection() {
 
           {/* Copyright */}
           <p className="text-white/25 font-golos text-sm">
-            © 2024 VoiceDub AI
+            © 2025 VoiceDubRu AI
           </p>
         </div>
       </div>

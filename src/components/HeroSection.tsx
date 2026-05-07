@@ -31,37 +31,27 @@ export default function HeroSection() {
     >
       {/* Mesh orbs */}
       <div className="mesh-bg">
-        <div className="mesh-orb w-[600px] h-[600px]" style={{ top: '-100px', left: '-100px', background: 'var(--vd-violet)', animationDelay: '0s' }} />
-        <div className="mesh-orb w-[500px] h-[500px]" style={{ top: '200px', right: '-150px', background: 'var(--vd-cyan)', animationDelay: '3s' }} />
-        <div className="mesh-orb w-[400px] h-[400px]" style={{ bottom: '-100px', left: '30%', background: 'var(--vd-pink)', animationDelay: '5s' }} />
+        <div className="mesh-orb w-[600px] h-[600px]" style={{ top: '-150px', left: '-150px', background: 'var(--vd-cyan)', animationDelay: '0s' }} />
+        <div className="mesh-orb w-[500px] h-[500px]" style={{ top: '200px', right: '-150px', background: 'var(--vd-pink)', animationDelay: '3s' }} />
+        <div className="mesh-orb w-[350px] h-[350px]" style={{ bottom: '-80px', left: '35%', background: 'var(--vd-lemon)', animationDelay: '5s', opacity: 0.18 }} />
       </div>
 
       {/* Grid overlay */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-[0.04]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
           backgroundSize: '60px 60px',
         }}
       />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        {/* Badge */}
-        <div
-          className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 animate-slide-up"
-          style={{ animationDelay: '0.1s', opacity: 0 }}
-        >
-          <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--vd-cyan)' }} />
-          <span className="text-white/70 text-xs font-golos tracking-widest uppercase">
-            Для контент-креаторов
-          </span>
-        </div>
 
         {/* Headline */}
         <h1
           className="font-syne font-800 text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-white mb-6 animate-slide-up"
-          style={{ animationDelay: '0.2s', opacity: 0 }}
+          style={{ animationDelay: '0.1s', opacity: 0 }}
         >
           Твой голос.
           <br />
@@ -69,41 +59,36 @@ export default function HeroSection() {
         </h1>
 
         <p
-          className="text-white/60 font-golos text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-slide-up"
-          style={{ animationDelay: '0.35s', opacity: 0 }}
+          className="text-white/60 font-golos text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8 animate-slide-up"
+          style={{ animationDelay: '0.25s', opacity: 0 }}
         >
-          Загрузи аудио на русском — получи озвучку на&nbsp;5&nbsp;языках{' '}
-          <span className="text-white/90 font-500">твоим собственным голосом</span>.
-          Охвати международную аудиторию, не меняя себя.
+          Загрузи короткий ролик на русском — получи озвучку{' '}
+          <span className="text-white font-500">твоим собственным голосом</span>{' '}
+          на 5 языках. Идеально для Reels, Shorts и TikTok.
         </p>
 
-        {/* Voice clone highlight */}
+        {/* Voice clone pill */}
         <div
-          className="inline-flex items-center gap-3 rounded-2xl px-6 py-3 mb-10 animate-slide-up"
+          className="inline-flex items-center gap-3 rounded-2xl px-5 py-2.5 mb-8 animate-slide-up"
           style={{
-            animationDelay: '0.42s',
+            animationDelay: '0.35s',
             opacity: 0,
-            background: 'linear-gradient(135deg, rgba(0,245,255,0.08), rgba(124,58,237,0.12))',
-            border: '1px solid rgba(0,245,255,0.2)',
+            background: 'rgba(0,229,204,0.08)',
+            border: '1px solid rgba(0,229,204,0.22)',
           }}
         >
-          <div
-            className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-            style={{ background: 'rgba(0,245,255,0.15)' }}
-          >
-            <Icon name="Fingerprint" size={18} style={{ color: 'var(--vd-cyan)' }} />
-          </div>
-          <p className="text-white/70 font-golos text-sm text-left">
-            <span className="text-white font-600">Клонирование голоса:</span> AI копирует тембр, ритм и характер твоей речи — слушатели узнают тебя на любом языке
-          </p>
+          <Icon name="Fingerprint" size={16} style={{ color: 'var(--vd-cyan)' }} />
+          <span className="text-white/70 font-golos text-sm">
+            <span className="text-white font-600">Клонирование голоса</span> — слушатели узнают тебя на любом языке
+          </span>
         </div>
 
         {/* Language chips */}
         <div
-          className="flex flex-wrap items-center justify-center gap-3 mb-10 animate-slide-up"
-          style={{ animationDelay: '0.5s', opacity: 0 }}
+          className="flex flex-wrap items-center justify-center gap-2.5 mb-10 animate-slide-up"
+          style={{ animationDelay: '0.42s', opacity: 0 }}
         >
-          <span className="text-white/30 font-golos text-sm">🇷🇺 Русский →</span>
+          <span className="text-white/30 font-golos text-sm mr-1">🇷🇺 Русский →</span>
           {LANGS.map((l) => (
             <div key={l.name} className="glass rounded-full px-3 py-1.5 flex items-center gap-1.5">
               <span className="text-base leading-none">{l.flag}</span>
@@ -115,10 +100,10 @@ export default function HeroSection() {
         {/* CTAs */}
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up"
-          style={{ animationDelay: '0.58s', opacity: 0 }}
+          style={{ animationDelay: '0.52s', opacity: 0 }}
         >
           <button
-            className="btn-grad px-8 py-4 rounded-full font-syne font-700 text-white text-base flex items-center gap-2"
+            className="btn-grad px-8 py-4 rounded-full font-syne font-700 text-[#080808] text-base flex items-center gap-2"
             onClick={() => document.querySelector('#app')?.scrollIntoView({ behavior: 'smooth' })}
           >
             <Icon name="Mic" size={18} />
@@ -137,7 +122,7 @@ export default function HeroSection() {
         <div
           ref={waveRef}
           className="flex items-center justify-center gap-[3px] h-16 animate-slide-up"
-          style={{ animationDelay: '0.68s', opacity: 0 }}
+          style={{ animationDelay: '0.62s', opacity: 0 }}
         >
           {WAVE_BARS.map((_, i) => (
             <div
@@ -145,7 +130,7 @@ export default function HeroSection() {
               className="wave-bar w-[3px] rounded-full"
               style={{
                 height: `${20 + Math.sin(i * 0.4) * 30 + Math.random() * 20}px`,
-                background: i < 14 ? 'var(--vd-cyan)' : i < 27 ? 'var(--vd-violet)' : 'var(--vd-pink)',
+                background: i < 14 ? 'var(--vd-cyan)' : i < 27 ? 'var(--vd-lemon)' : 'var(--vd-pink)',
                 opacity: 0.7 + Math.sin(i * 0.3) * 0.3,
               }}
             />
@@ -154,14 +139,14 @@ export default function HeroSection() {
 
         {/* Stats */}
         <div
-          className="flex flex-wrap items-center justify-center gap-8 mt-14 animate-slide-up"
-          style={{ animationDelay: '0.82s', opacity: 0 }}
+          className="flex flex-wrap items-center justify-center gap-8 mt-12 animate-slide-up"
+          style={{ animationDelay: '0.75s', opacity: 0 }}
         >
           {[
+            { val: 'Reels', label: 'Shorts · TikTok' },
             { val: '×5', label: 'Больше аудитория' },
-            { val: '5', label: 'Языков вывода' },
-            { val: '60с', label: 'Макс. длина аудио' },
-            { val: '<10с', label: 'Время обработки' },
+            { val: '60с', label: 'Макс. длина' },
+            { val: '<10с', label: 'Обработка' },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-syne font-800 text-2xl grad-text">{s.val}</div>
@@ -169,12 +154,6 @@ export default function HeroSection() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float">
-        <span className="text-white/30 text-xs font-golos">Прокрутить вниз</span>
-        <Icon name="ChevronDown" size={16} className="text-white/30" />
       </div>
     </section>
   );
