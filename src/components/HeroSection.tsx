@@ -48,10 +48,13 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 animate-slide-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+        <div
+          className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8 animate-slide-up"
+          style={{ animationDelay: '0.1s', opacity: 0 }}
+        >
           <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: 'var(--vd-cyan)' }} />
           <span className="text-white/70 text-xs font-golos tracking-widest uppercase">
-            Аудио-перевод на базе AI
+            Для контент-креаторов
           </span>
         </div>
 
@@ -60,23 +63,45 @@ export default function HeroSection() {
           className="font-syne font-800 text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-white mb-6 animate-slide-up"
           style={{ animationDelay: '0.2s', opacity: 0 }}
         >
-          Ваш голос
+          Твой голос.
           <br />
-          <span className="grad-text">на 5 языках</span>
+          <span className="grad-text">Весь мир.</span>
         </h1>
 
         <p
-          className="text-white/60 font-golos text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8 animate-slide-up"
+          className="text-white/60 font-golos text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10 animate-slide-up"
           style={{ animationDelay: '0.35s', opacity: 0 }}
         >
-          Загрузите аудио на русском — получите озвученный перевод на английском, испанском,
-          португальском, немецком или французском. До 60 секунд, мгновенно.
+          Загрузи аудио на русском — получи озвучку на&nbsp;5&nbsp;языках{' '}
+          <span className="text-white/90 font-500">твоим собственным голосом</span>.
+          Охвати международную аудиторию, не меняя себя.
         </p>
+
+        {/* Voice clone highlight */}
+        <div
+          className="inline-flex items-center gap-3 rounded-2xl px-6 py-3 mb-10 animate-slide-up"
+          style={{
+            animationDelay: '0.42s',
+            opacity: 0,
+            background: 'linear-gradient(135deg, rgba(0,245,255,0.08), rgba(124,58,237,0.12))',
+            border: '1px solid rgba(0,245,255,0.2)',
+          }}
+        >
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+            style={{ background: 'rgba(0,245,255,0.15)' }}
+          >
+            <Icon name="Fingerprint" size={18} style={{ color: 'var(--vd-cyan)' }} />
+          </div>
+          <p className="text-white/70 font-golos text-sm text-left">
+            <span className="text-white font-600">Клонирование голоса:</span> AI копирует тембр, ритм и характер твоей речи — слушатели узнают тебя на любом языке
+          </p>
+        </div>
 
         {/* Language chips */}
         <div
           className="flex flex-wrap items-center justify-center gap-3 mb-10 animate-slide-up"
-          style={{ animationDelay: '0.45s', opacity: 0 }}
+          style={{ animationDelay: '0.5s', opacity: 0 }}
         >
           <span className="text-white/30 font-golos text-sm">🇷🇺 Русский →</span>
           {LANGS.map((l) => (
@@ -90,7 +115,7 @@ export default function HeroSection() {
         {/* CTAs */}
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up"
-          style={{ animationDelay: '0.55s', opacity: 0 }}
+          style={{ animationDelay: '0.58s', opacity: 0 }}
         >
           <button
             className="btn-grad px-8 py-4 rounded-full font-syne font-700 text-white text-base flex items-center gap-2"
@@ -112,7 +137,7 @@ export default function HeroSection() {
         <div
           ref={waveRef}
           className="flex items-center justify-center gap-[3px] h-16 animate-slide-up"
-          style={{ animationDelay: '0.65s', opacity: 0 }}
+          style={{ animationDelay: '0.68s', opacity: 0 }}
         >
           {WAVE_BARS.map((_, i) => (
             <div
@@ -130,12 +155,12 @@ export default function HeroSection() {
         {/* Stats */}
         <div
           className="flex flex-wrap items-center justify-center gap-8 mt-14 animate-slide-up"
-          style={{ animationDelay: '0.8s', opacity: 0 }}
+          style={{ animationDelay: '0.82s', opacity: 0 }}
         >
           {[
-            { val: '5', label: 'Языков перевода' },
+            { val: '×5', label: 'Больше аудитория' },
+            { val: '5', label: 'Языков вывода' },
             { val: '60с', label: 'Макс. длина аудио' },
-            { val: 'MP3', label: 'Формат экспорта' },
             { val: '<10с', label: 'Время обработки' },
           ].map((s) => (
             <div key={s.label} className="text-center">
