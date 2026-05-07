@@ -69,9 +69,6 @@ export default function GrowthSection() {
             <div key={s.before} className="glass rounded-2xl overflow-hidden">
               {/* Before */}
               <div className="p-5 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.02)' }}>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-white/30 font-golos text-xs uppercase tracking-widest">Сейчас</span>
-                </div>
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.06)' }}>
                     <Icon name={s.icon} size={16} className="text-white/30" />
@@ -90,9 +87,6 @@ export default function GrowthSection() {
               </div>
               {/* After */}
               <div className="p-5" style={{ background: `${s.color}06` }}>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="font-golos text-xs uppercase tracking-widest font-600" style={{ color: s.color }}>С VoiceDub AI</span>
-                </div>
                 <div className="flex items-start gap-3">
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
