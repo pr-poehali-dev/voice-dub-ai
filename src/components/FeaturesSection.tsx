@@ -42,20 +42,16 @@ const FEATURES = [
 const LANGS = [
   { flag: '🇬🇧', code: 'EN', name: 'English', color: 'var(--vd-cyan)', audience: '1.5 млрд' },
   { flag: '🇪🇸', code: 'ES', name: 'Español', color: 'var(--vd-violet)', audience: '500 млн' },
-  { flag: '🇵🇹', code: 'PT', name: 'Português', color: 'var(--vd-lemon)', audience: '260 млн' },
+  { flag: '🇵🇹', code: 'PT', name: 'Português', color: 'var(--vd-pink)', audience: '260 млн' },
   { flag: '🇩🇪', code: 'DE', name: 'Deutsch', color: 'var(--vd-cyan)', audience: '130 млн' },
   { flag: '🇫🇷', code: 'FR', name: 'Français', color: 'var(--vd-violet)', audience: '320 млн' },
 ];
 
 const USE_CASES = [
-  { icon: 'Clapperboard', label: 'Лайфстайл-блогеры', desc: 'Reels и TikTok о жизни, путешествиях, буднях — на языке твоей зарубежной аудитории', color: 'var(--vd-cyan)' },
-  { icon: 'Dumbbell', label: 'Фитнес и спорт', desc: 'Тренировки, марафоны, мотивация — вирусный контент без языкового барьера', color: 'var(--vd-lemon)' },
-  { icon: 'ChefHat', label: 'Кулинарные ролики', desc: 'Рецепты и кулинарные шоу попадают в зарубежные рекомендации нативно', color: 'var(--vd-pink)' },
-  { icon: 'Sparkles', label: 'Бьюти и мода', desc: 'Обзоры, образы, уходовые рутины — делись с аудиторией по всему миру', color: 'var(--vd-cyan)' },
-  { icon: 'Megaphone', label: 'Реклама брендов', desc: 'Адаптируй рекламные ролики под EN, ES, PT, DE, FR-рынки без перепроизводства', color: 'var(--vd-lemon)' },
-  { icon: 'Gamepad2', label: 'Геймеры и стримеры', desc: 'Нарезки, моменты, обзоры игр — выходи на международные игровые комьюнити', color: 'var(--vd-pink)' },
-  { icon: 'TrendingUp', label: 'Бизнес и финансы', desc: 'Shorts про бизнес, инвестиции, кейсы — новая аудитория покупателей и партнёров', color: 'var(--vd-cyan)' },
-  { icon: 'Music', label: 'Музыканты', desc: 'Закулисье, клипы, анонсы — продвигай своё творчество на международных площадках', color: 'var(--vd-lemon)' },
+  { icon: 'Youtube', label: 'YouTube-каналы', desc: 'Загружай один раз — публикуй на 5 языковых каналах' },
+  { icon: 'Headphones', label: 'Подкасты', desc: 'Та же запись, международная дистрибуция' },
+  { icon: 'GraduationCap', label: 'Онлайн-курсы', desc: 'Продавай обучение по всему миру без перезаписи' },
+  { icon: 'Megaphone', label: 'Реклама и бренды', desc: 'Адаптируй рекламные ролики под каждый рынок' },
 ];
 
 export default function FeaturesSection() {
@@ -179,12 +175,12 @@ export default function FeaturesSection() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {USE_CASES.map((uc) => (
-              <div key={uc.label} className="glass rounded-2xl p-5 flex flex-col gap-3 group hover:border-white/12 transition-all duration-200">
+              <div key={uc.label} className="glass rounded-2xl p-5 flex flex-col gap-3">
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
-                  style={{ background: `${uc.color}12`, border: `1px solid ${uc.color}28` }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.25)' }}
                 >
-                  <Icon name={uc.icon} size={20} style={{ color: uc.color }} />
+                  <Icon name={uc.icon} size={20} style={{ color: 'var(--vd-violet)' }} />
                 </div>
                 <div>
                   <div className="font-syne font-600 text-white text-sm mb-1">{uc.label}</div>
