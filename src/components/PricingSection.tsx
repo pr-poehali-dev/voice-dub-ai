@@ -83,7 +83,7 @@ function PlanCard({ plan }: { plan: typeof PLANS[0] }) {
       title: 'Оплата скоро',
       description: 'Оставьте контакт — и мы сообщим первыми, как только появится возможность оплатить.',
     });
-    scrollTo('#contacts');
+    window.location.href = '/contact';
   };
 
   return (
@@ -192,21 +192,6 @@ export default function PricingSection() {
           <p className="text-white/50 font-golos text-lg max-w-xl mx-auto">
             Первые 3 перевода — прямо сейчас, без карты и регистрации
           </p>
-        </div>
-
-        {/* Info strip */}
-        <div className="glass rounded-2xl px-6 py-4 mb-10 flex flex-wrap items-center justify-center gap-6 text-sm font-golos">
-          {[
-            { icon: 'Mic2', text: 'Только аудио' },
-            { icon: 'Timer', text: 'До 60 секунд' },
-            { icon: 'Globe', text: 'EN · ES · PT · DE · FR' },
-            { icon: 'Flag', text: 'Источник: Русский' },
-          ].map((item) => (
-            <div key={item.text} className="flex items-center gap-2 text-white/50">
-              <Icon name={item.icon} size={14} style={{ color: 'var(--vd-cyan)' }} />
-              <span>{item.text}</span>
-            </div>
-          ))}
         </div>
 
         {/* Cards */}

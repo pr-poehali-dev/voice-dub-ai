@@ -9,20 +9,29 @@ export default function FooterSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg btn-grad flex items-center justify-center">
               <Icon name="Mic" size={16} className="text-white" />
             </div>
             <span className="font-syne font-800 text-lg text-white tracking-tight">
               VoiceDub<span className="grad-text">Ru</span> AI
             </span>
-          </div>
+          </a>
 
           {/* Links */}
           <div className="flex gap-6 text-white/40 font-golos text-sm">
-            {['Политика конфиденциальности', 'Условия использования', 'Cookies'].map((l) => (
-              <a key={l} href="#" className="hover:text-white/70 transition-colors">{l}</a>
-            ))}
+            <a href="/contact" className="hover:text-white/70 transition-colors">
+              Написать нам
+            </a>
+            <a
+              href="https://t.me/voicedubru"
+              target="_blank"
+              rel="noopener"
+              className="flex items-center gap-1.5 hover:text-white/70 transition-colors"
+            >
+              <Icon name="Send" size={13} />
+              Telegram
+            </a>
           </div>
 
           {/* Copyright */}
