@@ -10,15 +10,6 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
-  const handleCta = () => {
-    const el = document.querySelector('#app');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.location.href = '/#app';
-    }
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -36,13 +27,13 @@ export default function NavBar() {
           </span>
         </a>
 
-        {/* Single CTA */}
-        <button
-          onClick={handleCta}
-          className="btn-grad px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-syne font-600 text-white whitespace-nowrap"
+        {/* Quiet contact link */}
+        <a
+          href="/contact"
+          className="text-white/50 hover:text-white text-sm font-golos transition-colors"
         >
-          Попробовать бесплатно
-        </button>
+          Написать нам
+        </a>
       </div>
     </header>
   );
