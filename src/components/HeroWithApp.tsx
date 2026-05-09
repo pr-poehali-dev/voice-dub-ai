@@ -126,7 +126,7 @@ export default function HeroWithApp() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         {/* Left column: hero text */}
         <div className="flex flex-col justify-center">
           <div
@@ -193,6 +193,18 @@ export default function HeroWithApp() {
           className="relative animate-slide-up"
           style={{ animationDelay: '0.3s', opacity: 0 }}
         >
+          {/* Free tag — sits above the tool window */}
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span
+              className="inline-flex items-center gap-1.5 font-golos text-xs tracking-wider uppercase font-600"
+              style={{ color: 'var(--vd-lemon)' }}
+            >
+              <Icon name="Sparkles" size={13} />
+              Попробовать бесплатно
+            </span>
+            <Icon name="ArrowDown" size={13} className="text-white/40" />
+          </div>
+
           <div
             className="glass rounded-3xl overflow-hidden"
             style={{ border: '1px solid rgba(255,255,255,0.10)', boxShadow: '0 40px 80px rgba(0,0,0,0.6)' }}

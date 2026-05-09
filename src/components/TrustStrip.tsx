@@ -2,7 +2,7 @@ import Icon from '@/components/ui/icon';
 
 const ITEMS = [
   { icon: 'Globe', val: '5 языков', label: 'EN · ES · PT · DE · FR' },
-  { icon: 'Gift', val: '3 бесплатно', label: 'без карты и регистрации' },
+  { icon: 'Gift', val: '3 перевода бесплатно', label: 'без карты и регистрации' },
   { icon: 'Zap', val: 'меньше 10 сек', label: 'время обработки' },
   { icon: 'Shield', val: '100% приватно', label: 'файлы удаляются сразу' },
 ];
@@ -27,8 +27,8 @@ export default function TrustStrip() {
               <Icon name={item.icon} size={15} style={{ color: 'var(--vd-cyan)' }} />
             </div>
             <div className="min-w-0">
-              <div className="font-syne font-700 text-white text-sm truncate">{item.val}</div>
-              <div className="text-white/40 font-golos text-xs truncate">{item.label}</div>
+              <div className="font-syne font-700 text-white text-sm leading-tight">{item.val}</div>
+              <div className="text-white/40 font-golos text-xs leading-tight mt-0.5">{item.label}</div>
             </div>
           </div>
         ))}
