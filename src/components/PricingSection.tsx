@@ -27,7 +27,7 @@ const PLANS = [
   },
   {
     name: 'Про',
-    price: '790',
+    price: '549',
     period: '/ мес',
     desc: 'Для регулярного использования',
     color: 'var(--vd-lemon)',
@@ -49,7 +49,7 @@ const PLANS = [
   },
   {
     name: 'Команда',
-    price: '2 990',
+    price: '1 499',
     period: '/ мес',
     desc: 'Для агентств и команд',
     color: 'var(--vd-pink)',
