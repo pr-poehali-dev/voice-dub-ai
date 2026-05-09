@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
 const WAVE_BARS = Array.from({ length: 40 });
+const WAVE_HEIGHTS = WAVE_BARS.map((_, i) => 20 + Math.sin(i * 0.4) * 30 + Math.random() * 20);
+const WAVE_OPACITIES = WAVE_BARS.map((_, i) => 0.7 + Math.sin(i * 0.3) * 0.3);
+const WAVE_DURATIONS = WAVE_BARS.map(() => 0.8 + Math.random() * 0.8);
 
 const LANGS = [
   { flag: '🇬🇧', name: 'English' },
@@ -19,7 +22,7 @@ export default function HeroSection() {
     const bars = waveRef.current.querySelectorAll<HTMLElement>('.wave-bar');
     bars.forEach((bar, i) => {
       bar.style.animationDelay = `${(i * 0.07) % 1.2}s`;
-      bar.style.animationDuration = `${0.8 + Math.random() * 0.8}s`;
+      bar.style.animationDuration = `${WAVE_DURATIONS[i]}s`;
     });
   }, []);
 
@@ -129,9 +132,9 @@ export default function HeroSection() {
               key={i}
               className="wave-bar w-[3px] rounded-full"
               style={{
-                height: `${20 + Math.sin(i * 0.4) * 30 + Math.random() * 20}px`,
+                height: `${WAVE_HEIGHTS[i]}px`,
                 background: i < 14 ? 'var(--vd-cyan)' : i < 27 ? 'var(--vd-lemon)' : 'var(--vd-pink)',
-                opacity: 0.7 + Math.sin(i * 0.3) * 0.3,
+                opacity: WAVE_OPACITIES[i],
               }}
             />
           ))}

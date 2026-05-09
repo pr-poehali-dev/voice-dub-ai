@@ -27,7 +27,7 @@ export default function FooterSection() {
 
           {/* Copyright */}
           <p className="text-white/25 font-golos text-sm">
-            © 2025 VoiceDubRu AI
+            © 2026 VoiceDubRu AI
           </p>
         </div>
       </div>

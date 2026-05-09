@@ -47,7 +47,7 @@ export default function NavBar() {
             <button
               key={link.href}
               onClick={() => handleNav(link.href)}
-              className="text-white/70 hover:text-white text-sm font-golos font-500 transition-colors duration-200 hover:grad-text"
+              className="text-white/70 hover:text-white text-sm font-golos font-500 transition-colors duration-200"
             >
               {link.label}
             </button>
@@ -56,10 +56,16 @@ export default function NavBar() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <button className="text-white/70 hover:text-white text-sm font-golos transition-colors">
+          <button
+            onClick={() => handleNav('#contacts')}
+            className="text-white/70 hover:text-white text-sm font-golos transition-colors"
+          >
             Войти
           </button>
-          <button className="btn-grad px-5 py-2 rounded-full text-sm font-syne font-600 text-white">
+          <button
+            onClick={() => handleNav('#app')}
+            className="btn-grad px-5 py-2 rounded-full text-sm font-syne font-600 text-white"
+          >
             Попробовать бесплатно
           </button>
         </div>
@@ -85,7 +91,10 @@ export default function NavBar() {
               {link.label}
             </button>
           ))}
-          <button className="btn-grad px-5 py-3 rounded-full text-sm font-syne font-600 text-white mt-2">
+          <button
+            onClick={() => handleNav('#app')}
+            className="btn-grad px-5 py-3 rounded-full text-sm font-syne font-600 text-white mt-2"
+          >
             Попробовать бесплатно
           </button>
         </div>

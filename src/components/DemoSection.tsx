@@ -231,6 +231,22 @@ export default function DemoSection() {
           </p>
         </div>
 
+        {/* Synthetic warning banner */}
+        <div
+          className="glass rounded-2xl px-5 py-4 mb-8 max-w-3xl mx-auto flex items-start gap-3"
+          style={{ border: '1px solid rgba(212,255,0,0.25)', background: 'rgba(212,255,0,0.04)' }}
+        >
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"
+            style={{ background: 'rgba(212,255,0,0.12)', border: '1px solid rgba(212,255,0,0.3)' }}
+          >
+            <Icon name="Info" size={16} style={{ color: 'var(--vd-lemon)' }} />
+          </div>
+          <p className="text-white/70 font-golos text-sm leading-relaxed">
+            Демо-треки — синтетические примеры. Загрузи свой голос в приложении выше — получишь перевод своим настоящим голосом.
+          </p>
+        </div>
+
         {/* Voice identity strip */}
         <div
           className="flex items-center gap-4 rounded-2xl px-6 py-4 mb-10 mx-auto max-w-xl"

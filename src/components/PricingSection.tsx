@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import Icon from '@/components/ui/icon';
+import { toast } from '@/hooks/use-toast';
 
 const PLANS = [
   {
@@ -9,8 +9,8 @@ const PLANS = [
     desc: 'Попробуйте без регистрации',
     color: 'var(--vd-cyan)',
     features: [
-      '3 перевода в день',
-      'Максимум 10 переводов в месяц',
+      '3 перевода бесплатно',
+      'Без регистрации и карты',
       'Аудио до 30 секунд',
       '5 языков перевода',
       'Транскрипция: 1 файл в день',
@@ -69,8 +69,22 @@ const PLANS = [
   },
 ];
 
+function scrollTo(selector: string) {
+  document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+}
+
 function PlanCard({ plan }: { plan: typeof PLANS[0] }) {
-  const [autoRenew, setAutoRenew] = useState(true);
+  const handleCta = () => {
+    if (!plan.paid) {
+      scrollTo('#app');
+      return;
+    }
+    toast({
+      title: 'Оплата скоро',
+      description: 'Оставьте контакт — и мы сообщим первыми, как только появится возможность оплатить.',
+    });
+    scrollTo('#contacts');
+  };
 
   return (
     <div
@@ -129,42 +143,8 @@ function PlanCard({ plan }: { plan: typeof PLANS[0] }) {
         ))}
       </ul>
 
-      {/* Auto-renew toggle — only for paid plans */}
-      {plan.paid && (
-        <div
-          className="flex items-center gap-3 rounded-xl px-4 py-3 mb-4 cursor-pointer select-none"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-          onClick={() => setAutoRenew((v) => !v)}
-        >
-          {/* Custom toggle */}
-          <div
-            className="w-9 h-5 rounded-full flex-shrink-0 relative transition-all duration-200"
-            style={{
-              background: autoRenew ? plan.color : 'rgba(255,255,255,0.12)',
-            }}
-          >
-            <div
-              className="absolute top-0.5 w-4 h-4 rounded-full bg-white transition-all duration-200"
-              style={{ left: autoRenew ? 'calc(100% - 18px)' : '2px', boxShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
-            />
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="text-white/70 font-golos text-xs font-500">
-              {autoRenew ? 'Автопродление включено' : 'Автопродление выключено'}
-            </p>
-            <p className="text-white/30 font-golos text-[11px] mt-0.5">
-              {autoRenew ? 'Подписка продлится автоматически' : 'Подписка истечёт в конце периода'}
-            </p>
-          </div>
-          <Icon
-            name={autoRenew ? 'RefreshCw' : 'RefreshCcw'}
-            size={14}
-            style={{ color: autoRenew ? plan.color : 'rgba(255,255,255,0.2)', flexShrink: 0 }}
-          />
-        </div>
-      )}
-
       <button
+        onClick={handleCta}
         className={`w-full py-3 rounded-2xl font-syne font-700 text-sm transition-all duration-200 ${
           plan.popular ? 'btn-grad text-[#080808]' : ''
         }`}
@@ -236,8 +216,8 @@ export default function PricingSection() {
           ))}
         </div>
 
-        <p className="text-center text-white/20 font-golos text-sm mt-10">
-          Автопродление можно отключить в любой момент до окончания периода оплаты.
+        <p className="text-center text-white/30 font-golos text-sm mt-10">
+          Автопродление можно отключить в любой момент в личном кабинете
         </p>
       </div>
     </section>

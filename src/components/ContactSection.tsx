@@ -1,13 +1,35 @@
 import { useState } from 'react';
 import Icon from '@/components/ui/icon';
+import { toast } from '@/hooks/use-toast';
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setSending(true);
+    try {
+      const res = await fetch('https://formspree.io/f/mzdojonn', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('network');
+      setSent(true);
+    } catch {
+      toast({
+        title: 'Не удалось отправить',
+        description: 'Попробуйте позже или напишите нам в Telegram.',
+        variant: 'destructive',
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -56,7 +78,7 @@ export default function ContactSection() {
               <h3 className="font-syne font-700 text-white text-xl">Сообщение отправлено!</h3>
               <p className="text-white/50 font-golos text-sm">Ответим в течение 2 часов</p>
               <button
-                onClick={() => setSent(false)}
+                onClick={() => { setSent(false); setForm({ name: '', email: '', message: '' }); }}
                 className="text-white/40 hover:text-white font-golos text-sm mt-2 transition-colors"
               >
                 Отправить ещё одно
@@ -105,9 +127,13 @@ export default function ContactSection() {
                 />
               </div>
 
-              <button type="submit" className="btn-grad py-3.5 rounded-2xl font-syne font-700 text-[#080808] flex items-center justify-center gap-2">
-                <Icon name="Send" size={16} />
-                Отправить сообщение
+              <button
+                type="submit"
+                disabled={sending}
+                className="btn-grad py-3.5 rounded-2xl font-syne font-700 text-[#080808] flex items-center justify-center gap-2 disabled:opacity-60"
+              >
+                <Icon name={sending ? 'Loader' : 'Send'} size={16} className={sending ? 'animate-spin' : ''} />
+                {sending ? 'Отправляем...' : 'Отправить сообщение'}
               </button>
             </form>
           )}

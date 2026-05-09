@@ -136,7 +136,7 @@ export default function GrowthSection() {
         >
           <div>
             <h3 className="font-syne font-700 text-white text-xl mb-1">Готов выйти на международный рынок?</h3>
-            <p className="text-white/45 font-golos text-sm">Первые 5 переводов бесплатно — без карты и регистрации</p>
+            <p className="text-white/45 font-golos text-sm">3 перевода бесплатно — без карты и регистрации</p>
           </div>
           <button
             className="btn-grad px-8 py-4 rounded-full font-syne font-700 text-white flex items-center gap-2 flex-shrink-0"

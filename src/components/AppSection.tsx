@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import Icon from '@/components/ui/icon';
+import { toast } from '@/hooks/use-toast';
 
 const LANGUAGES = [
   { code: 'en', flag: '🇬🇧', name: 'English', color: 'var(--vd-cyan)' },
@@ -384,7 +385,16 @@ export default function AppSection() {
                   )}
 
                   <div className="flex gap-3 mt-auto">
-                    <button className="btn-grad flex-1 py-3 rounded-2xl font-syne font-700 text-[#080808] text-sm flex items-center justify-center gap-2">
+                    <button
+                      onClick={() => {
+                        toast({
+                          title: 'Скачивание будет доступно в полной версии',
+                          description: 'Запишитесь в бета-тест — отправим первыми, как только откроем загрузку.',
+                        });
+                        document.querySelector('#contacts')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="btn-grad flex-1 py-3 rounded-2xl font-syne font-700 text-[#080808] text-sm flex items-center justify-center gap-2"
+                    >
                       <Icon name="Download" size={15} />
                       {activeTab === 'translate' ? 'Скачать MP3' : 'Скачать TXT'}
                     </button>
